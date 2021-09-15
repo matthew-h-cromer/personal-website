@@ -1,0 +1,121 @@
+import styled from 'styled-components';
+// Custom Components
+import Section from '../../../reusable/Section';
+import Blob from '../../../reusable/Blob';
+
+export default function Work() {
+  const jobs = [
+    {
+      title: 'Product Owner',
+      company: 'Mitutoyo Research & Development',
+      dates: 'Jan 2021 - Now',
+      description: (
+        <>
+          Lead a high performance software team in developing next generation vision metrology
+          software.
+        </>
+      ),
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'Raven Heat Transfer',
+      dates: 'Sep 2019 - Jan 2021',
+      description: (
+        <>
+          Built an elegant <b>web application</b> which allows easy management of B2C
+          manufacturing companies.
+        </>
+      ),
+    },
+    {
+      title: 'Controls Engineer',
+      company: 'Redviking',
+      dates: 'Nov 2018 - Sep 2019',
+      description: (
+        <>
+          Integrated a proprietary "error proofing" information system on Ford assembly lines.
+          This involved writing PLC programs, <b>python</b> scripts, and <b>javascript</b>{' '}
+          debugging.
+        </>
+      ),
+    },
+    {
+      title: 'Mechanical Engineer',
+      company: 'Raven Heat Transfer',
+      dates: 'Jan 2017 - Nov 2018',
+      description: (
+        <>
+          Designed the machinery, processes, and products required to transform a heat
+          exchanger distributor into a heat exchanger manufacturer.
+        </>
+      ),
+    },
+  ];
+
+  return (
+    <Section id='work'>
+      <Blob pathIndex={2} />
+      <Content>
+        <ContentTitle>Work</ContentTitle>
+        {jobs.map((job, index) => (
+          <>
+            <JobCard {...job} />
+            {index < jobs.length - 1 && <Hr />}
+          </>
+        ))}
+      </Content>
+    </Section>
+  );
+}
+
+const Content = styled.div`
+  padding: 2rem;
+  max-width: 500px;
+  text-align: justify;
+  font-weight: 400;
+  overflow: hidden;
+`;
+const ContentTitle = styled.h1`
+  margin-top: 0;
+`;
+const Hr = styled.hr`
+  margin: 0.3rem 0;
+  border: 1px solid lightgrey;
+`;
+
+const JobCard = ({ title, company, dates, description }) => {
+  return (
+    <Container>
+      <Title>{title}</Title>
+      <Company>{company}</Company>
+      <Description>{description}</Description>
+      <Dates>{dates}</Dates>
+    </Container>
+  );
+};
+
+const Container = styled.div`
+  position: relative;
+  padding: 0.6rem 0 0.6rem 0;
+  box-sizing: border-box;
+`;
+const Title = styled.p`
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+`;
+const Company = styled.p`
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem 0;
+`;
+const Description = styled.p`
+  font-size: 0.85rem;
+  margin: 10px 0 0 0;
+`;
+const Dates = styled.p`
+  position: absolute;
+  top: 0.8rem;
+  right: 0.6rem;
+  margin: 0;
+  font-size: 0.8rem;
+`;
