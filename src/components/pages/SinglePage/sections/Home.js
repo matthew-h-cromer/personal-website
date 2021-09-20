@@ -12,12 +12,15 @@ export default function Home() {
         <Hi>Hi, I'm Matthew</Hi>
         <TextContainer>
           <p>
-            I am a creator and problem solver who's transitioned from a rich background in
-            mechanical engineering into the world of <b>software</b>.
+            Currently, as <b>Product Owner</b> at{' '}
+            <A href='https://www.mitutoyo-rda.com/' target='_blank'>
+              Mitutoyo Research & Development
+            </A>
+            , I lead a talented team in building next generation vision metrology software.
           </p>
           <p>
-            Currently, as <b>Product Owner</b> at Mitutoyo Research & Development, I lead a
-            team in building next generation vision metrology software.
+            I'm interested in web development, manufacturing, commerce, and blockchain
+            technologies.
           </p>
         </TextContainer>
         <Social />
@@ -41,4 +44,11 @@ const TextContainer = styled.div`
   max-width: 500px;
   text-align: justify;
   font-weight: 400;
+`;
+const A = styled.a`
+  color: black;
+
+  &:hover {
+    color: #00b899;
+  }
 `;

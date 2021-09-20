@@ -8,6 +8,7 @@ export default function Work() {
     {
       title: 'Product Owner',
       company: 'Mitutoyo Research & Development',
+      companyLink: 'https://www.mitutoyo-rda.com/',
       dates: 'Jan 2021 - Now',
       description: (
         <>
@@ -22,20 +23,18 @@ export default function Work() {
       dates: 'Sep 2019 - Jan 2021',
       description: (
         <>
-          Built an elegant <b>web application</b> which allows easy management of B2C
-          manufacturing companies.
+          Built an elegant web application for the management of B2C manufacturing companies.
         </>
       ),
     },
     {
       title: 'Controls Engineer',
       company: 'Redviking',
+      companyLink: 'https://www.redviking.com/',
       dates: 'Nov 2018 - Sep 2019',
       description: (
         <>
           Integrated a proprietary "error proofing" information system on Ford assembly lines.
-          This involved writing PLC programs, <b>python</b> scripts, and <b>javascript</b>{' '}
-          debugging.
         </>
       ),
     },
@@ -44,10 +43,7 @@ export default function Work() {
       company: 'Raven Heat Transfer',
       dates: 'Jan 2017 - Nov 2018',
       description: (
-        <>
-          Designed the machinery, processes, and products required to transform a heat
-          exchanger distributor into a heat exchanger manufacturer.
-        </>
+        <>Transformed a heat exchanger distributor into a heat exchanger manufacturer.</>
       ),
     },
   ];
@@ -79,15 +75,17 @@ const ContentTitle = styled.h1`
   margin-top: 0;
 `;
 const Hr = styled.hr`
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
   border: 1px solid lightgrey;
 `;
 
-const JobCard = ({ title, company, dates, description }) => {
+const JobCard = ({ title, company, companyLink, dates, description }) => {
   return (
     <Container>
       <Title>{title}</Title>
-      <Company>{company}</Company>
+      <Company href={companyLink} target='_blank'>
+        @{company}
+      </Company>
       <Description>{description}</Description>
       <Dates>{dates}</Dates>
     </Container>
@@ -96,26 +94,39 @@ const JobCard = ({ title, company, dates, description }) => {
 
 const Container = styled.div`
   position: relative;
-  padding: 0.6rem 0 0.6rem 0;
+  padding: 0;
   box-sizing: border-box;
 `;
 const Title = styled.p`
-  font-size: 1.1rem;
-  margin: 0 0 0.25rem 0;
+  font-size: 1.2rem;
+  margin: 0;
   font-weight: 600;
 `;
-const Company = styled.p`
+const Company = styled.a`
+  display: block;
+  width: fit-content;
   font-size: 0.75rem;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.2rem 0;
+  padding: 0px;
+  text-decoration: none;
+  color: black;
+
+  ${({ href }) =>
+    href
+      ? `&:hover {
+    color: #00b899;
+  }`
+      : null}
 `;
 const Description = styled.p`
-  font-size: 0.85rem;
-  margin: 10px 0 0 0;
+  font-size: 0.95rem;
+  margin: 0;
 `;
 const Dates = styled.p`
-  position: absolute;
-  top: 0.8rem;
-  right: 0.6rem;
-  margin: 0;
   font-size: 0.8rem;
+  line-height: 1.7rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
 `;
