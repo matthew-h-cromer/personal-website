@@ -18,9 +18,9 @@ export default function Work() {
       ),
     },
     {
-      title: 'Full Stack Developer',
+      title: 'Full Stack Developer / Product Owner',
       company: 'Raven Heat Transfer',
-      dates: 'Sep 2019 - Jan 2021',
+      dates: 'Sep 2019 - Now',
       description: (
         <>
           Built an elegant web application for the management of B2C manufacturing companies.
