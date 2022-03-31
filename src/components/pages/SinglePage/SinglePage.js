@@ -3,11 +3,13 @@ import Home from './sections/Home';
 import About from './sections/About';
 import Work from './sections/Work';
 import ScrollIndicators from '../../reusable/ScrollIndicators';
+import HamburgerMenu from '../../HamburgerMenu';
 
 export default function SinglePage() {
   return (
     <>
       <ScrollIndicators />
+      <HamburgerMenu />
       <Container id='section-container'>
         <Home />
         <About />
